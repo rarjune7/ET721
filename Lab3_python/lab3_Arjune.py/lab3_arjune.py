@@ -27,7 +27,14 @@ elif (70>finalgrade>=60):
     
 elif (60>finalgrade>=0):
     gpa = 'F'
+
 else:
+    if not(0<=labs<=100):
+        print(f"Grade for lab {labs} is invalid")
+    elif not(0<=labs<=100):
+        print(f"Grade for exams {exams}is invalid")
+    else:
+        print(f"Grade for labs {labs} and {exams} are invalid")
     gpa = 'UNDEFINED'
 
 print(f"Your final grade in the class is {finalgrade} = {gpa}")
