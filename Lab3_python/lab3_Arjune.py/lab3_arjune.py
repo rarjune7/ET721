@@ -50,3 +50,33 @@ while not(SECRET ==userguest):
 
 print(f"congrats! {userguest} is the right number :)  ")
 
+print("---------> Example 3: Loops, break statement <--------------")
+
+balance = 1000
+widthdraw = 0
+deposit = 0
+
+while True:
+    userinput = input("Do you want to widthdraw, w or deposit, d ? ") 
+    if userinput == 'w' or userinput == 'W':
+       W_amount = int(input('How much do you wnat ot widthdraw? '))
+       if W_amount>balance:
+           print(f"Unsuficient funds ! You can't withdraw more than {balance}")
+       else:
+        balance -= W_amount
+    elif userinput == 'd' or userinput == 'D':
+        d_amount = int(input('How much do you want to deposit? '))
+        balance += d_amount
+        print(f"Your new balance is {balance}")
+    else:
+        print("Invalid selection!")
+       
+    choice = input("Would you like to do another transaction? (y,n)")
+    if not(choice =='y' or choice == 'Y'):
+        break
+
+print("Thank you for banking with us! ")
+    
+
+
+
