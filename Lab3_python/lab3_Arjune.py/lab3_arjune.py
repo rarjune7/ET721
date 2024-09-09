@@ -40,4 +40,13 @@ else:
 print(f"Your final grade in the class is {finalgrade} = {gpa}")
 
 
+print("---------> Example 2: Loops <--------------")
+
+SECRET = 8
+
+userguest = int(input("Guess a number between 1 and 10: "))
+while not(SECRET ==userguest):
+    userguest = int(input("Wrong guess :( Guess again: "))
+
+print(f"congrats! {userguest} is the right number :)  ")
 
