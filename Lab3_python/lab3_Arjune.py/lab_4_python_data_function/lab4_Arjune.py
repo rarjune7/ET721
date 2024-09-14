@@ -48,3 +48,21 @@ print(word_count_dict)
 
 print("\n ------> EXERICSE <-----------")
 # given the following user list, find the number of users that use 'gmail', 'hotmail', and 'yahoo
+
+user ="""
+
+peter = ppan@gmail.com
+diana = d@hotmail.com
+Kent = ckent@yahoo.com
+Bruce = bwayne@hotmail.com
+tony = tstark@gmail.com
+shrek = shrek@gmail.com
+"""
+user = user.split()
+# test
+user1 = user[2]
+check1 = '@hotmail' in user1
+print(check1)
+# loop to go through each word
+# save the count of emails in a dictionary
+
