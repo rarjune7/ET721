@@ -66,3 +66,26 @@ print(check1)
 # loop to go through each word
 # save the count of emails in a dictionary
 
+# I got some help from my friend... :)
+
+# Initialize counts
+
+gmail_count = 0
+hotmail_count = 0
+yahoo_count = 0
+
+for word in user:
+    if '@gmail.com' in word:
+        gmail_count += 1
+    elif '@hotmail.com' in word:
+        hotmail_count += 1
+    elif '@yahoo.com' in word:
+        yahoo_count += 1
+
+print(f"Number of Gmail users: {gmail_count}")
+print(f"Number of Hotmail users: {hotmail_count}")
+print(f"Number of Yahoo users: {yahoo_count}")
+
+
+
+
