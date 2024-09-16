@@ -37,7 +37,7 @@ def isdivisible(n1,n2):
 # Example 6: Function that passes a radius and returns the circumference 
 
 def circumference(radius):
-    return 2*math.pi.radius
+    return 2 * math.pi
 
 # Example 8: Function that returns a random number between 1 and 6
 
@@ -64,22 +64,23 @@ n = 9
 print(f"The triple of number {n} is {triplenumber(n) }")
 
 
-print("\n ---- Example 5: function that passes two numbers and returns True or False -----")
+print("\n ---> Example 5: function that passes two numbers and returns True or False <-----")
 n1 = 10
 n2 = 50
 check1 = isdivisible(n1,n2)
 print(f"Is {n1} and {n2} divisibled? {check1}")
 
 print("\n -----> Example 6: function that passes a radius and returns the circumference <-----")
+
 r = 5
-c = circumference (r)
+c = circumference(r)
 print(f"A circle with radius {r} has a circumference of {c: .2f}")
 
 print("\n -------> Example 7: random numbers <-------- ")
 
 print(f"random number {random. random ( )}")
 print(f" random uniform {random. uniform(-5,5)}")
-print(f" random randint {random. randint (-10,10)}")
+print(f" random randint {random.randint (-10,10)}")
 
 print("\n -------> Example 8: roll a dice <-------- ")
 print(f"dice number = {rolldice()}")
