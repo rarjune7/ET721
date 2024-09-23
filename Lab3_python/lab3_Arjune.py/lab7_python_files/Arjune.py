@@ -90,3 +90,32 @@ adduser(newusername, city, age, "users.txt")
 
 print("\n --------> Exercise: <--------")
 
+def email_read():
+    try:
+        # Read the file with email addresses
+        with open('user_email.txt', 'r') as file:
+            gmail_count = yahoo_count = hotmail_count = 0  # Initialize counters
+
+            # Check each email in the file
+            for email in file:
+                email = email.strip()  # Clean up whitespace
+                if '@gmail.com' in email:
+                    gmail_count += 1
+                elif '@yahoo.com' in email:
+                    yahoo_count += 1
+                elif '@hotmail.com' in email:
+                    hotmail_count += 1
+
+        # Append the results to the report file
+        with open('reportemail.txt', 'a') as report:
+            report.write(f"Gmail: {gmail_count}\n")
+            report.write(f"Yahoo: {yahoo_count}\n")
+            report.write(f"Hotmail: {hotmail_count}\n")
+
+        print("Report appended to 'reportemail.txt'")
+
+    except Exception as e:
+        print(f"Error: {e}")
+
+# Run the function to see how it works
+email_read()
