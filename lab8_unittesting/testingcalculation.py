@@ -25,6 +25,24 @@ class TestCalcuation(unittest.TestCase):
         # float comparison
         self.assertEqual(calculation.dividetwonumbers(7,2), 3.5)
 
+        #division by zero 
+        def test_dividebyzero(self):
+            self.assertIsNone(calculation.dividetwonumbers(10,0))
+
+        #non-numeric testing
+        def test_nonnumericvalues(self):
+            self.assertIsNone(calculation.dividetwonumbers("p",2))
+            self.assertIsNone(calculation.dividetwonumbers(10,"n"))
+
+        #any another exceptions
+        def test_unexpected_exception(self):
+            #flag raises if 'Exception' is detected
+            with self.assertRaises(Exception):
+                calculation.dividetwonumbers()
+
+
+
+
 
 if __name__ == "__main__":
     unittest.main()
