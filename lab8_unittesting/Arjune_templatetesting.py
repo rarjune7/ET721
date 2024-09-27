@@ -14,3 +14,8 @@ def addtwonumbers(a,b):
 class TestAddFunction(unittest.TestCase):
     def test_addtwonumbers(self):
         self.assertEqual(addtwonumbers(3,5),8)
+
+if __name__ == '__main__':
+    unittest.main()
+
+    
