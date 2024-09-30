@@ -28,9 +28,9 @@ def main():
                     print("Grade must be between 0 and 100. ")
             except ValueError:
                 print("Invalid input shawty. ")
-                
+
     average = totalsumgrade / num_students
-    print(f"The Class average is {average:.2f}")
+    print(f"The class average is {average:.2f}")
 
 if __name__ == "__main__":
     main()
