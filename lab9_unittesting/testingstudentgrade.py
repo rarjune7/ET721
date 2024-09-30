@@ -57,8 +57,33 @@ class TestManFunction(unittest.TestCase):
 
         #TEST FOR INVALID VALUE OF INPUT NUMBER OF STUDENTS
 
+        @patch('builtins.input', side_effect=['0', '3', '90', '80', '70'])
+        @patch('sys.stdout', new_callable=io.StringIO)
+
+        def test_invalid_number_of_students(self, mock_stdout, mock_input):
+            # call the function 'main()' from 'studentgrade.py'
+               studentgrade.main()
+
+            # retrieve the captured output
+        output = mock_stdout.getvalue()
+
+        # check if the printed output is as expected
+        self.assertIn("Number of students must be greater than 0.", output)
+
 
         #TEST FOR INVALID VALUE OF GRADE
+        
+        @patch('builtins.input', side_effect=['2', '-5', '85', '95'])
+        @patch('sys.stdout', new_callable=io.StringIO)
+        def test_invalid_grade_input(self, mock_stdout, mock_input):
+             # call the function 'main()' from 'studentgrade.py'
+               studentgrade.main()
+
+        # retrieve the captured output
+        output = mock_stdout.getvalue()
+
+        # check if the printed output is as expected
+        self.assertIn("Grade must be between 0 and 100.", output)
 
 
 
