@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 11 by Ravindra Arjune </title>
+    <link rel="stylesheet" href="{% static 'doliststyle.css' %}">
+</head>
+<body>
+    <main class = "maincontainer">
+        <h1 class ="apptitle"> To do list by Ravindra Arjune</h1>
+        <form class = "todolistform">
+            <section class = "formgroup">
+                <label for = "task">What to do?..</label>
+                <input type = "text"  id = "task" class = "todo_text" placeholder="type your task...">
+                <button class = "btnadd"> ADD TO LIST </button>
+            </section>
+            <section class ="fromgroup">
+                <buttton class = btn_deleteeach> DELETE COMPLETED</buttton>
+                <button class = btn_deleteall>DELETE ALL</button>
+            </section>
+            <section class ="formgroup">
+                <h3>Added to list</h3>
+                <ul>
+                    <li>Finish Django Lab 11</li>
+                </ul>
+
+            </section>
+        </form>
+
+
+
+    </main>
+</body>
+</html>
