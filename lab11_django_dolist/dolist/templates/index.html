@@ -4,33 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab 11 by Ravindra Arjune </title>
+    <title>Lab 11 by Ravindra Arjune</title>
     <link rel="stylesheet" href="{% static 'doliststyle.css' %}">
 </head>
 <body>
-    <main class = "maincontainer">
-        <h1 class ="apptitle"> To do list by Ravindra Arjune</h1>
-        <form class = "todolistform">
-            <section class = "formgroup">
-                <label for = "task">What to do?..</label>
-                <input type = "text"  id = "task" class = "todo_text" placeholder="type your task...">
-                <button class = "btnadd"> ADD TO LIST </button>
+    <main class="maincontainer">
+        <h1 class="apptitle">To do list by Ravindra Arjune</h1>
+        <form class="todolistform" id="todoForm">
+            <section class="formgroup">
+                <label for="task">What to do?..</label>
+                <input type="text" id="task" class="todo_text" placeholder="Type your task...">
+                <button type="button" class="btnadd">ADD TO LIST</button>
             </section>
-            <section class ="fromgroup">
-                <buttton class = btn_deleteeach> DELETE COMPLETED</buttton>
-                <button class = btn_deleteall>DELETE ALL</button>
+            <section class="formgroup">
+                <button type="button" class="btn_deleteeach">DELETE COMPLETED</button>
+                <button type="button" class="btn_deleteall">DELETE ALL</button>
             </section>
-            <section class ="formgroup">
+            <section class="formgroup">
                 <h3>Added to list</h3>
-                <ul>
-                    <li>Finish Django Lab 11</li>
+                <ul class="listdo" id="taskList">
+                    {% for task in todo_tasks %}
+                        {% if task.completed %}
+                            <li class="listitem completed">{{ task.text }}</li>
+                        {% else %}
+                            <li class="listitem">{{ task.text }}</li>
+                        {% endif %}
+                    {% endfor %}
                 </ul>
-
             </section>
         </form>
-
-
-
     </main>
+
+    <script>
+        // JavaScript functionality
+
+        // Add Task Functionality
+        document.querySelector('.btnadd').addEventListener('click', function() {
+            const taskInput = document.getElementById('task');
+            const taskText = taskInput.value.trim();
+
+            if (taskText) {
+                const newTask = document.createElement('li');
+                newTask.className = 'listitem';
+                newTask.textContent = taskText;
+
+                // Add "Complete" button for each new task
+                const completeButton = document.createElement('button');
+                completeButton.className = 'btn_deleteeach';
+                completeButton.textContent = 'Complete';
+                completeButton.addEventListener('click', function() {
+                    newTask.classList.toggle('completed');
+                });
+                newTask.appendChild(completeButton);
+
+                document.getElementById('taskList').appendChild(newTask);
+                taskInput.value = '';
+            }
+        });
+
+        // Delete Completed Tasks
+        document.querySelector('.btn_deleteeach').addEventListener('click', function() {
+            const tasks = document.querySelectorAll('.listitem.completed');
+            tasks.forEach(task => task.remove());
+        });
+
+        // Delete All Tasks
+        document.querySelector('.btn_deleteall').addEventListener('click', function() {
+            document.getElementById('taskList').innerHTML = '';
+        });
+    </script>
 </body>
 </html>
