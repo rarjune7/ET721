@@ -13,29 +13,11 @@
     text-align: center;
 }
 
-.dolistform {
-    margin-top: 2em;
-}
-
-.formgroup {
-    margin-top: 2em;
-}
-
-.todo_text {
-    padding: 0.5em;
-    border-radius: 5px;
-    border: solid gray 1px;
-    width: 400px;
-}
-
-/* BUTTON STYLES */
 .btnadd, .btn_deleteeach, .btn_deleteall {
-    background-color: crimson;
-    border: none;
-    padding: 0.5em;
+    padding: 0.5em 2em;
     border-radius: 5px;
-    color: whitesmoke;
-    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s ease;
 }
 
 .btnadd {
@@ -43,27 +25,44 @@
 }
 
 .btnadd:hover {
-    background-color: darkolivegreen;
+    background-color: darkgreen;
+    transform: scale(1.05);
 }
 
-.btn_deleteall, .btn_deleteeach:hover {
+.btn_deleteeach, .btn_deleteall {
+    background-color: crimson;
+}
+
+.btn_deleteeach:hover, .btn_deleteall:hover {
     background-color: darkred;
+    transform: scale(1.05);
 }
 
-/* TO DO LIST */
 .listdo {
-    padding: 20px;
-    background-color: rgb(230, 230, 230);
     list-style: none;
+    padding: 0;
+}
+
+.listitem {
+    padding: 1em;
+    background-color: lightgrey;
+    margin-bottom: 0.5em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.listitem:hover {
+    background-color: #d3d3d3;
+    transform: scale(1.02);
 }
 
 .completed {
-    color: whitesmoke;
     text-decoration: line-through;
-    background-color: rgb(50, 50, 50);
+    color: grey;
+    background-color: #f0f0f0;
 }
 
-.linktem{
-    background-color: rgb(230,230,230);
-    text-decoration: none;
+.completed:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
 }

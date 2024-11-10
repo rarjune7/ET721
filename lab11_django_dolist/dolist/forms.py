@@ -1,4 +1,14 @@
 from django import forms
 
 class TodoListForm(forms.Form):
-    text = forms.CharField(max_length=45, widget=forms.TextInput(attrs={'class':'todo_text', 'placeholder': 'Type your task...', 'aria-label': 'task', 'aria-describeby':'btn-add'}))
+    text = forms.CharField(
+        max_length=45,
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Enter task, e.g., Grocery Shopping',
+                'aria-label': 'Todo',
+                'aria-describedby': 'add-btn'
+            }
+        )
+    )
