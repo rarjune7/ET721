@@ -1,6 +1,4 @@
-# Blog by Ravindra
-
-# ET721 Lab Blog
+# ET721 Lab Blog by Ravindra
 
 Welcome to my Django-based blog app! This is a simple blog application that I built to practice core Django concepts. It allows users to create, view, and edit blog posts. Through this project, I explored Django's models, views, templates, forms, and URL routing.
 
