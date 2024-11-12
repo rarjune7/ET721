@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import BlogPost
-from .forms import BlogPostForm  # This line should work once forms.py is created
+from .forms import BlogPostForm
 
 def post_list(request):
     posts = BlogPost.objects.all()
@@ -18,7 +18,7 @@ def post_create(request):
             return redirect('post_list')
     else:
         form = BlogPostForm()
-    return render(request, 'blog/post_form.html', {'form': form, 'form_title': 'Create Post'})
+    return render(request, 'blog/post_form.html', {'form': form})
 
 def post_edit(request, id):
     post = get_object_or_404(BlogPost, id=id)
@@ -29,4 +29,4 @@ def post_edit(request, id):
             return redirect('post_detail', id=post.id)
     else:
         form = BlogPostForm(instance=post)
-    return render(request, 'blog/post_form.html', {'form': form, 'form_title': 'Edit Post'})
+    return render(request, 'blog/post_form.html', {'form': form})

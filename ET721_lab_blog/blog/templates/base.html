@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Blog{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Blog</h1>
+        <nav>
+            <div class="nav-buttons">
+                <a href="{% url 'post_list' %}">Home</a>
+                <a href="{% url 'post_create' %}">New Post</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ravindra Arjune</p>
+    </footer>
+</body>
+</html>
+
