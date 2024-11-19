@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ item.name }} Feedback</title>
+</head>
+<body>
+    <h1>{{ item.name }}</h1>
+    <p>Average Rating: {{ avg_rating|floatformat:1 }}</p>
+
+    <h2>Feedback</h2>
+    <ul>
+        {% for feedback in feedbacks %}
+            <li>{{ feedback.comment }} - {{ feedback.rating }} stars</li>
+        {% empty %}
+            <li>No feedback yet.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Leave Feedback</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
