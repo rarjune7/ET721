@@ -1,26 +1,26 @@
+<!-- feedback/templates/feedback/item_detail.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>{{ item.name }} Feedback</title>
+    <meta charset="UTF-8">
+    <title>{{ item.name }} - Feedback</title>
 </head>
 <body>
     <h1>{{ item.name }}</h1>
-    <p>Average Rating: {{ avg_rating|floatformat:1 }}</p>
+    <p>Average Rating: {{ average_rating }}</p>
 
-    <h2>Feedback</h2>
+    <h2>Feedback:</h2>
     <ul>
         {% for feedback in feedbacks %}
-            <li>{{ feedback.comment }} - {{ feedback.rating }} stars</li>
-        {% empty %}
-            <li>No feedback yet.</li>
+            <li>{{ feedback.comment }} (Rating: {{ feedback.rating }})</li>
         {% endfor %}
     </ul>
 
-    <h2>Leave Feedback</h2>
+    <h2>Leave Feedback:</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button type="submit">Submit Feedback</button>
     </form>
 </body>
 </html>
