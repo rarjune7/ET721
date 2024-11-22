@@ -1,26 +1,188 @@
-<!-- feedback/templates/feedback/item_detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ item.name }} - Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ item.name }} Details</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        /* Link Styling */
+        .links {
+            text-align: right;
+            padding: 10px 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #34495e;
+            color: white;
+        }
+
+        /* Item Detail Styling */
+        .item-detail {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-detail h2 {
+            font-size: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .item-detail .feedback-list {
+            border-top: 1px solid #ddd;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+
+        .item-detail .feedback-list p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .item-detail .feedback-list p strong {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        /* Form Styling */
+        .feedback-form {
+            margin-top: 40px;
+        }
+
+        .feedback-form h3 {
+            font-size: 24px;
+            color: #34495e;
+        }
+
+        .feedback-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feedback-form textarea,
+        .feedback-form select,
+        .feedback-form button {
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background-color: #ecf0f1;
+            transition: border-color 0.3s;
+        }
+
+        .feedback-form textarea:focus,
+        .feedback-form select:focus,
+        .feedback-form button:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        .feedback-form button {
+            background-color: #e74c3c;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .feedback-form button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ item.name }}</h1>
-    <p>Average Rating: {{ average_rating }}</p>
 
-    <h2>Feedback:</h2>
-    <ul>
+<header>
+    <h1>Ravindra's Luxury Item Details</h1>
+</header>
+
+<div class="links">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'item_list' %}">Items</a>
+</div>
+
+<div class="item-detail">
+    <h2>{{ item.name }} Details</h2>
+
+    <div class="feedback-list">
+        <h3>Feedback:</h3>
         {% for feedback in feedbacks %}
-            <li>{{ feedback.comment }} (Rating: {{ feedback.rating }})</li>
+            <p><strong>{{ feedback.rating }} stars</strong>: {{ feedback.comment }} <br><small>Posted on: {{ feedback.created_at }}</small></p>
+        {% empty %}
+            <p>No feedback yet. Be the first to leave feedback!</p>
         {% endfor %}
-    </ul>
+    </div>
 
-    <h2>Leave Feedback:</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit Feedback</button>
-    </form>
+    <div class="feedback-form">
+        <h3>Leave Your Feedback:</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <p><strong>Average Rating:</strong> {{ avg_rating }} stars</p>
+</div>
+
+<footer>
+    <p>&copy; 2024 Ravindra's Business. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
