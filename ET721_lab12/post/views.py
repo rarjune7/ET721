@@ -12,9 +12,9 @@ class HomePageView(ListView):
     model = Post
     template_name = 'home.html'
 
-#view to enable users to load new images 
+# View to enable users to load new images 
 class CreatePostView(CreateView):
     model = Post
     form_class = PostForm
-    Template_name = 'post.html'
+    template_name = 'post.html'  # Fixed capitalization here
     success_url = reverse_lazy('home')
