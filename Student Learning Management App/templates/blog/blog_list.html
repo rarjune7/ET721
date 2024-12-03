@@ -1,0 +1,14 @@
+<!-- templates/blog/blog_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>Blog Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <strong>{{ post.title }}</strong> - {{ post.category }}
+            <br>{{ post.created_at|date:"F j, Y" }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'blog:add_blog' %}">Write a Blog</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!-- templates/upload_notes/note_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>Uploaded Notes</h2>
+<ul>
+    {% for note in notes %}
+        <li>
+            <img src="{{ note.image.url }}" alt="{{ note.title }}" style="max-width: 100px;">
+            <strong>{{ note.title }}</strong> - {{ note.category }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'upload_notes:upload_note_image' %}">Upload Notes</a>
+{% endblock %}

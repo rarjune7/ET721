@@ -1,0 +1,15 @@
+<!-- templates/to_do_list/task_list.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>To-Do List</h2>
+<ul>
+    {% for task in tasks %}
+        <li>
+            <strong>{{ task.title }}</strong> - {{ task.category }}
+            {% if task.completed %}(Completed){% endif %}
+            <br>Due: {{ task.due_date }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'to_do_list:add_task' %}">Add Task</a>
+{% endblock %}

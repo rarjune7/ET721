@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "to_do_list",  # Ensure this is here
+    "upload_notes",
+    "blog",
 ]
+
+ # "to_do_list",
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
