@@ -6,9 +6,10 @@
     <title>Uploaded Notes</title>
     <style>
         /* Basic reset */
-        body, h1, p, ul {
+        body, h1, p, ul, nav, ul li {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
         
         /* Global styles */
@@ -88,9 +89,47 @@
             font-size: 1.2em;
             color: #888;
         }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #3498db;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'homepage' %}">Homepage</a></li>
+        </ul>
+    </nav>
+
     <h1>Uploaded Notes</h1>
 
     <!-- Upload Notes Button -->
@@ -110,3 +149,4 @@
 
 </body>
 </html>
+
