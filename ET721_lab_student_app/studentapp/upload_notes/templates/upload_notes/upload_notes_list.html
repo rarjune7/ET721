@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Notes</title>
+</head>
+<body>
+    <h1>Uploaded Notes</h1>
+
+    <!-- Upload Notes Button -->
+    <a href="{% url 'upload_notes_create' %}" class="button">Upload Notes</a>
+    
+    <ul>
+        {% for note in notes %}
+            <li>
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.description }}</p>
+                <a href="{{ note.file.url }}" target="_blank">Download File</a>
+            </li>
+        {% empty %}
+            <p>No uploaded notes found.</p>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

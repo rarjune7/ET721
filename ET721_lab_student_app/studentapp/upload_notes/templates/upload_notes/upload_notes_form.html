@@ -1,0 +1,7 @@
+<!-- upload_notes/templates/upload_notes/upload_notes_form.html -->
+<h1>Upload Notes</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- This renders the form fields -->
+    <button type="submit">Upload</button>
+</form>

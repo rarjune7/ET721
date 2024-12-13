@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.title }} - {{ post.created_at }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'blog_create' %}">Create New Post</a>
+</body>
+</html>

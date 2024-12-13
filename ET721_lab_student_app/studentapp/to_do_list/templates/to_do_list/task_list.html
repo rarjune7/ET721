@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title>
+</head>
+<body>
+    <h1>To-Do List</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} - {{ task.description }} 
+                <a href="{% url 'task_edit' task.id %}">Edit</a>
+                <a href="{% url 'task_delete' task.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'task_create' %}">Create New Task</a>
+</body>
+</html>
+
+
