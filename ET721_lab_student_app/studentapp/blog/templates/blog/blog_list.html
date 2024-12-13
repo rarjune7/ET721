@@ -3,12 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <title>Blog Posts</title>
+    <style>
+        /* Basic Reset */
+        body, h1, ul, li, a {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        /* Blog Post List Styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #fff;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        ul li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        ul li span {
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        /* Create Post Link Styles */
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        a:active {
+            background-color: #1f78a2;
+        }
+    </style>
 </head>
 <body>
     <h1>Blog Posts</h1>
     <ul>
         {% for post in posts %}
-            <li>{{ post.title }} - {{ post.created_at }}</li>
+            <li>
+                <strong>{{ post.title }}</strong>
+                <br>
+                <span>Created at: {{ post.created_at }}</span>
+            </li>
         {% endfor %}
     </ul>
     <a href="{% url 'blog_create' %}">Create New Post</a>

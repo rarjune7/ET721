@@ -2,20 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
+    <style>
+        /* Basic reset */
+        body, h1, ul, li, a {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Button Styling */
+        .create-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px auto;
+            display: block;
+            width: 200px;
+        }
+
+        .create-button:hover {
+            background-color: #45a049;
+        }
+
+        .create-button:active {
+            background-color: #3e8e41;
+        }
+
+        /* Empty State Message */
+        .empty-message {
+            text-align: center;
+            font-size: 1.2em;
+            color: #888;
+        }
+    </style>
 </head>
 <body>
     <h1>To-Do List</h1>
+
+    <!-- Create New Task Button -->
+    <a href="{% url 'task_create' %}" class="create-button">Create New Task</a>
+
     <ul>
         {% for task in tasks %}
-            <li>{{ task.title }} - {{ task.description }} 
-                <a href="{% url 'task_edit' task.id %}">Edit</a>
-                <a href="{% url 'task_delete' task.id %}">Delete</a>
+            <li>
+                <span>{{ task.title }} - {{ task.description }}</span>
+                <div>
+                    <a href="{% url 'task_edit' task.id %}">Edit</a>
+                    <a href="{% url 'task_delete' task.id %}">Delete</a>
+                </div>
             </li>
+        {% empty %}
+            <p class="empty-message">No tasks available. Create one now!</p>
         {% endfor %}
     </ul>
-    <a href="{% url 'task_create' %}">Create New Task</a>
 </body>
 </html>
-
-

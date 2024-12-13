@@ -1,7 +1,88 @@
-<!-- blog/templates/blog/blog_form.html -->
-<h1>Create a New Blog Post</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}  <!-- This renders the form fields -->
-    <button type="submit">Save</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a New Blog Post</title>
+    <style>
+        /* Basic Reset */
+        body, h1, form, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        /* Form Container */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Form Elements */
+        form input, form textarea, form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* Submit Button */
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        button:active {
+            background-color: #1f78a2;
+        }
+
+        /* CSRF Token */
+        .csrf-token {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New Blog Post</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="csrf-token">
+            {{ form.as_p }} <!-- This renders the form fields -->
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
